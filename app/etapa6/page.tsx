@@ -43,7 +43,12 @@ export default function Page() {
         </div>
 
         <button
-          onClick={() => router.push("/etapa7")}
+          onClick={() => {
+            if (typeof window !== "undefined" && typeof fbq !== "undefined") {
+              fbq('track', 'Lead')
+            }
+            router.push("/etapa7")
+          }}
           className="mt-6 bg-white/90 hover:bg-white text-black px-8 py-4 rounded-full shadow-xl text-xl font-bold transition transform hover:-translate-y-1"
         >
           Bora ver como fica o seu roteiro exclusivo 💥
